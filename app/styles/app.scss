@@ -1,0 +1,47 @@
+// We don't need to concatenate ".scss" resulting files to one here, that's why we just import "" files
+
+// Helpers
+@import 'helpers/fonts';
+@import 'helpers/typography';
+@import 'helpers/base.default';
+@import 'helpers/base.responsive';
+@import 'helpers/rtl.version';
+
+// Themes
+@import 'themes/theme-dark';
+
+// Forms
+@import 'forms/basic-form-elements';
+@import 'forms/buttons';
+@import 'forms/dropdowns';
+@import 'forms/checkboxes-radio';
+@import 'forms/form-validation';
+@import 'forms/selectboxes';
+@import 'forms/autocomplete';
+
+// Components
+@import 'components/utilities';
+@import 'components/tables';
+@import 'components/steps';
+@import 'components/tooltips-popovers';
+@import 'components/modal';
+@import 'components/progress-bars';
+@import 'components/badges-labels';
+@import 'components/pagination';
+@import 'components/collapse';
+@import 'components/tabs';
+@import 'components/notifications-alerts';
+@import 'components/carousel';
+@import 'components/widgets';
+@import 'components/breadcrumbs';
+
+// Pages
+@import 'pages/pricing-table';
+@import 'pages/ecommerce';
+
+// Apps
+@import 'apps/profile';
+@import 'apps/messaging';
+@import 'apps/mail';
+@import 'apps/calendar';
+@import 'apps/gallery';

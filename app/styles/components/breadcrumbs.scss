@@ -1,0 +1,112 @@
+@import '../mixins';
+
+/*
+ * BREADCRUMBS
+ */
+
+
+.breadcrumb-custom {
+    display: inline-block;
+    padding: 0px;
+    margin-bottom: 0px;
+    li {
+        padding: 0px;
+        > a, > span {
+            display: inline-block;
+            padding: 9px 30px 9px 30px;
+            position: relative;
+            background: $gray;
+            margin: 0px 8px 6px;
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: -10px;
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-width: 39px 10px 0px 0px;
+                border-color: transparent $gray transparent transparent;
+
+                @include transition-slow();
+            }
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0px;
+                right: -10px;
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-width: 0px 0px 39px 10px;
+                border-color: transparent transparent transparent $gray;
+
+                @include transition-slow();
+            }
+        }
+        > a {
+            @include transition-slow();
+            &:hover {
+                background: $blue;
+                color: $white;
+                &:before {
+                    border-color: transparent $blue transparent transparent;
+                }
+                &:after {
+                    border-color: transparent transparent transparent $blue;
+                }
+            }
+        }
+        &:first-child {
+            > a, > span {
+                margin-left: 0px;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+        &:last-child {
+            > a, > span {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        &:after {
+            padding: 0px;
+            content: "";
+        }
+    }
+}
+
+.theme-inverse {
+    .breadcrumb-custom {
+        li {
+            > a, > span {
+                color: $black-lighten-more-more;
+                background: $black-lighten;
+                &:before {
+                    border-color: transparent $black-lighten transparent transparent;
+                }
+                &:after {
+                    border-color: transparent transparent transparent $black-lighten;
+                }
+            }
+            > a {
+                &:hover {
+                    background: $blue;
+                    color: $white;
+                    &:before {
+                        border-color: transparent $blue transparent transparent;
+                    }
+                    &:after {
+                        border-color: transparent transparent transparent $blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
