@@ -7,6 +7,7 @@ export default Ember.Component.extend({
     didInsertElement: function () {
         Ember.run.scheduleOnce('afterRender', this, this.initializeScroll);
         Ember.run.scheduleOnce('afterRender', this, this.bindGroupClick);
+        Ember.run.scheduleOnce('afterRender', this, this.bindMenuEffects);
     },
 
     initializeScroll: function() {
@@ -43,5 +44,58 @@ export default Ember.Component.extend({
                 that.toggleClass('left-menu-list-opened').find('> ul').slideToggle(200);
             }
         });
+    },
+
+    bindMenuEffects: function() {
+      var translateSelector = this.$('.left-menu-inner'), startTranslateX = 0;
+      translateSelector.addClass('scrolled-to-left');
+
+      this.$(window).on('resize', function () {
+          startTranslateX = 0;
+          translateSelector.css('transform', 'translate3d(' + 0 + 'px, 0px, 0px)');
+      });
+
+      this.$('nav.left-menu').on('mousemove', function (e) {
+          if (this.$(window).width() > 751) {
+              var menuWidth = this.$('nav.left-menu').width(),
+                  windowWidth = this.$(window).width(),
+                  boxedOffset = (windowWidth - menuWidth) / 2,
+                  innerWidth = (function () {
+                      var width = 0;
+
+                      this.$('.left-menu-list-root > *').each(function () {
+                          width += $(this).width();
+                      });
+
+                      return width;
+                  })(),
+
+                  logoWidth = this.$('.logo-container').outerWidth(),
+                  deltaWidth = menuWidth - logoWidth - innerWidth,
+                  hoverOffset = 100;
+
+              if (deltaWidth < 0) {
+                  if (e.clientX < windowWidth - menuWidth - boxedOffset + logoWidth + hoverOffset) {
+                      if (startTranslateX < 0 || startTranslateX < deltaWidth) {
+                          startTranslateX = startTranslateX - deltaWidth;
+                          translateSelector
+                              .removeClass('scrolled-to-right')
+                              .addClass('scrolled-to-left')
+                              .css('transform', 'translate3d(' + startTranslateX + 'px, 0px, 0px)');
+                      }
+                  }
+
+                  if (e.clientX > menuWidth + boxedOffset - hoverOffset) {
+                      if (startTranslateX >= 0 || startTranslateX > deltaWidth) {
+                          startTranslateX = deltaWidth;
+                          translateSelector
+                              .removeClass('scrolled-to-left')
+                              .addClass('scrolled-to-right')
+                              .css('transform', 'translate3d(' + startTranslateX + 'px, 0px, 0px)');
+                      }
+                  }
+              }
+          }
+      });
     }
 });
