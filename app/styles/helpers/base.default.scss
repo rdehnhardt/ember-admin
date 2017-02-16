@@ -86,7 +86,7 @@ a {
     color: $black-lighten-more;
     @include transition-fast();
     &:hover, &:focus {
-        color: $blue;
+        color: $primary;
         text-decoration: none;
         @include transition-fast();
     }
