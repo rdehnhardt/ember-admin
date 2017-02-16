@@ -9,8 +9,7 @@ module.exports = function (defaults) {
         }
     });
 
-    // Use `app.import` to add additional libraries to the generated
-    // output files.
+    // Use `app.import` to add additional libraries.
 
     // JS
     app.import('bower_components/jquery/jquery.min.js');
@@ -50,7 +49,6 @@ module.exports = function (defaults) {
     app.import('bower_components/jquery-steps/build/jquery.steps.min.js');
     app.import('bower_components/bootstrap-select/dist/js/bootstrap-select.min.js');
     app.import('bower_components/dropify/dist/js/dropify.min.js');
-    app.import('vendor/js/common.js');
 
     // CSS
     app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
@@ -88,7 +86,7 @@ module.exports = function (defaults) {
     // environments, specify an object as the first parameter. That
     // object's keys should be the environment name and the values
     // should be the asset to use in that environment.
-    //
+
     // If the library that you are including contains AMD or ES6
     // modules that you would like to import into your application
     // please specify an object with the list of modules as keys

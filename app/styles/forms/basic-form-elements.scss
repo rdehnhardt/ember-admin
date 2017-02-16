@@ -17,8 +17,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 .form-control {
     font-family: $font-text;
     padding: 8px 16px;
-    border-color: $gray-darken;
-    border-with: 2px;
+    border: 2px $gray-darken solid;
 
     &.form-control-rounded {
         border-radius: 500px;

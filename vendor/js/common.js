@@ -125,42 +125,4 @@ $(function () {
             $('.main-backdrop').removeClass('main-backdrop-showed')
         }
     });
-
-    // Material Effects
-    if ($('body').hasClass('mode-material')) {
-        (function ($) {
-            $("body").on('click', '.btn, .left-menu-link', function (e) {
-                var rippler = $(this)
-
-                // Create .ink element if it doesn't exist
-                if (rippler.find("> .ink").length == 0) {
-                    $('.ink').remove();
-                    rippler.append("<span class='ink'></span>");
-                }
-
-                var ink = rippler.find("> .ink");
-
-                // Prevent quick double clicks
-                ink.removeClass("animate");
-
-                // Set .ink diameter
-                if (!ink.height() && !ink.width()) {
-                    var d = Math.max(rippler.outerWidth(), rippler.outerHeight());
-                    ink.css({height: d, width: d});
-                }
-
-                // Get click coordinates
-                var x = e.pageX - rippler.offset().left - ink.width() / 2;
-                var y = e.pageY - rippler.offset().top - ink.height() / 2;
-
-                // Set .ink position and add class .animate
-                ink.css({
-                    top: y + 'px',
-                    left: x + 'px'
-                }).addClass("animate");
-            })
-        })(jQuery);
-    }
 });
-
-alert('TESTE')
