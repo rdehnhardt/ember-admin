@@ -36,8 +36,9 @@ export default Ember.Component.extend({
             if (!accessDenied) {
                 var that = $(this).parent(), opened = $('.left-menu .left-menu-list-opened');
 
-                if (!that.hasClass('left-menu-list-opened') && !that.parent().closest('.left-menu-list-submenu').length)
+                if (!that.hasClass('left-menu-list-opened') && !that.parent().closest('.left-menu-list-submenu').length) {
                     opened.removeClass('left-menu-list-opened').find('> ul').slideUp(200);
+                }
 
                 that.toggleClass('left-menu-list-opened').find('> ul').slideToggle(200);
             }
