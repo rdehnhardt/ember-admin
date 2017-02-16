@@ -5,12 +5,12 @@ export default Ember.Component.extend({
     tagName: 'nav',
 
     didInsertElement: function () {
-        this.initializeScroll();
-        this.bindGroupClick();
+        Ember.run.scheduleOnce('afterRender', this, this.initializeScroll);
+        Ember.run.scheduleOnce('afterRender', this, this.bindGroupClick);
     },
 
     initializeScroll: function() {
-        $('.scroll-pane').each(function () {
+        this.$('.scroll-pane').each(function () {
             $(this).jScrollPane({
                 autoReinitialise: true,
                 autoReinitialiseDelay: 100
@@ -30,7 +30,7 @@ export default Ember.Component.extend({
     },
 
     bindGroupClick: function() {
-        $('.left-menu-list-submenu > a').on('click', function () {
+        this.$('.left-menu-list-submenu > a').on('click', function () {
             var accessDenied = $('body').hasClass('menu-top') && $(window).width() > 768;
 
             if (!accessDenied) {

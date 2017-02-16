@@ -10,6 +10,7 @@
   "debug": false,
   "devel": true,
   "eqeqeq": true,
+  "jquery": true,
   "evil": true,
   "forin": false,
   "immed": false,

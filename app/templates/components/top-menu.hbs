@@ -154,33 +154,7 @@
                 </div>
             </div>
         </div>
-        <div class="left hidden-md-down">
-            <div class="example-top-menu-chart">
-                <span class="title">Income:</span>
-                <span class="chart" id="topMenuChart">1,3,2,0,3,1,2,3,5,2</span>
-                <span class="count">425.00 USD</span>
-
-                <!-- Top Menu Chart Script -->
-                <script>
-                    $(function () {
-
-                        var topMenuChart = $("#topMenuChart").peity("bar", {
-                            fill: ['#01a8fe'],
-                            height: 22,
-                            width: 44
-                        });
-
-                        setInterval(function() {
-                            var random = Math.round(Math.random() * 10);
-                            var values = topMenuChart.text().split(",");
-                            values.shift();
-                            values.push(random);
-                            topMenuChart.text(values.join(",")).change()
-                        }, 1000);
-                    });
-                </script>
-            </div>
-        </div>
+        
         <div class="right hidden-lg-down margin-left-20">
             <div class="search-block">
                 <div class="form-input-icon form-input-icon-right">

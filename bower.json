@@ -2,7 +2,7 @@
   "name": "cleanui",
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.6",
-    "jquery": "~1.10.2",
+    "jquery": "~3.1.1",
     "tether": "^1.4.0",
     "jquery-mousewheel": "^3.1.13",
     "jscrollpane": "^2.0.22",

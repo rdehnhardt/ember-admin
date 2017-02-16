@@ -12,7 +12,6 @@ module.exports = function (defaults) {
     // Use `app.import` to add additional libraries.
 
     // JS
-    app.import('bower_components/jquery/jquery.min.js');
     app.import('bower_components/tether/dist/js/tether.min.js');
     app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
     app.import('bower_components/jquery-mousewheel/jquery.mousewheel.min.js');
